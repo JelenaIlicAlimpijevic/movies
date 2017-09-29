@@ -1,5 +1,6 @@
 <?php
-
+ 
+ use App\Http\Controllers\MoviesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +15,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/movies', 'MoviesController@index');
+
+Route::get('/movies/{id}',
+[
+    'as' => 'single-movie',
+    'uses' => 'MoviesController@show'
+]
+);
