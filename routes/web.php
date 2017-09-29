@@ -1,6 +1,7 @@
 <?php
  
  use App\Http\Controllers\MoviesController;
+ use App\Http\Controllers\CommentsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,4 +41,11 @@ Route::post('/movies',
         'as' => 'store-movie',
         'uses' => 'MoviesController@store'
      ]
+);
+
+Route::post('movies/{movieId}/comments',
+    [
+        'as' => 'comments-movie',
+        'uses' => 'CommentsController@store'
+    ]
 );

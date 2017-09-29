@@ -14,4 +14,9 @@ class Movie extends Model
         'genre' => 'required',
         'created_at'=>'required | integer | min:1900 | max:date("Y")',
     ];
+
+     public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
