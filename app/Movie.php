@@ -12,6 +12,6 @@ class Movie extends Model
         'title' => 'required | max: 25',
         'storyline' => 'required | max: 1000',
         'genre' => 'required',
-        'created_at'=>'required|date|after:1900|before:2017'
+        'created_at'=>'required | integer | min:1900 | max:date("Y")',
     ];
 }
