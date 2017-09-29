@@ -13,12 +13,13 @@ class Movies extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('movies');
         Schema::create('movies', function (Blueprint $table){
             $table->increments('id');
             $table->string('title');
             $table->string('genre');
             $table->string('director');
-            $table->timestamp('created_at');
+            $table->timestamps();
             $table->text('storyline');
         });
     }

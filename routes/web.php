@@ -16,11 +16,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/movies', 'MoviesController@index');
-
+Route::get('/movies', 
+	[	'as'=>'all-movies',
+		'uses'=>'MoviesController@index']);
+	
 Route::get('/movies/{id}',
 [
     'as' => 'single-movie',
     'uses' => 'MoviesController@show'
 ]
+);
+
+Route::get('/create',
+    [
+        'as' => 'create-movie',
+        'uses' => 'MoviesController@create'
+    ]
+
+);
+
+Route::post('/movies',
+     [
+        'as' => 'store-movie',
+        'uses' => 'MoviesController@store'
+     ]
 );
